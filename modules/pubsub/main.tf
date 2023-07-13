@@ -49,11 +49,12 @@ resource "google_pubsub_subscription" "aegis-pubsub-subscriptions" {
   depends_on = [google_pubsub_topic.pubsub-topic]
 }
 
+# Subscriber permission for listed GSA
 resource "google_pubsub_subscription_iam_binding" "aegis-pubsub-suscription-subscribers" {
   for_each = var.subscriptions
   role = "roles/pubsub.subscriber"
   subscription = google_pubsub_subscription.aegis-pubsub-subscriptions[each.key].name
-  members = toset(var.subscribers)
+  members = ????
 
 
 }

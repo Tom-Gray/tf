@@ -26,6 +26,3 @@ variable "confidentiality" {
 
 }
 
-variable "subscribers" {
-  
-}
