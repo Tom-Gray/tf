@@ -3,7 +3,7 @@ locals {
 }
 
 
-resource "google_pubsub_topic" "aegis-pubsub-topic" {
+resource "google_pubsub_topic" "pubsub-topic" {
   name    = var.topic
   project = var.project_id
 
@@ -23,9 +23,8 @@ resource "google_pubsub_topic" "aegis-pubsub-topic" {
   }
 }
 
-# Platform control: PL.PUBSUB.C-O1
-# Platform control: PL.PUBSUB.C-02 (is standard)
-# resource "google_pubsub_topic_iam_binding" "aegis-pubsub-publishers" {
+
+# resource "google_pubsub_topic_iam_binding" "pubsub-publishers" {
 
 #   project = var.project_id
 #   topic   = var.topic
@@ -33,6 +32,6 @@ resource "google_pubsub_topic" "aegis-pubsub-topic" {
 #   members = each.value.member_list
 
 #   depends_on = [
-#     google_pubsub_topic.aegis-pubsub-topic,
+#     google_pubsub_topic.pubsub-topic,
 #   ]
 # }
