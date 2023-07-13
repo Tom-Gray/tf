@@ -1,5 +1,9 @@
 locals {
   project_id = "tomgraydemo"
+
+
+
+
 }
 
 module "pubsub" {
@@ -8,8 +12,9 @@ module "pubsub" {
   for_each   = var.pubsub
   project_id = local.project_id
 
-  topic = each.value.name
-
+  topic         = each.key
+  subscriptions = each.value.subscriptions
+  publishers    = each.value.publishers
 
   confidentiality = each.value.labels.confidentiality
   integrity       = each.value.labels.integrity

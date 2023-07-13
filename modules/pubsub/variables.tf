@@ -7,9 +7,12 @@ variable "topic" {
 
 }
 
-# variable "subscription" {
+variable "subscriptions" {
 
-# }
+}
+variable "publishers" {
+
+}
 
 variable "integrity" {
 
@@ -21,4 +24,8 @@ variable "trustlevel" {
 
 variable "confidentiality" {
 
+}
+
+variable "subscribers" {
+  
 }

@@ -1,39 +1,31 @@
 
 pubsub = {
   MyFirstTopic = {
-    name        = "MyFirstTopic"
     environment = "ldev"
     labels = {
       confidentiality = "confidential"
       integrity       = "accurate"
       trustlevel      = "medium"
     }
-  }
-
-  subscriptions = {
-    subscription1 = {
-      subscribers = {
-        idm = {
-          email = "idm@project.iam.gserviceaccount.com"
-        }
+    subscriptions = {
+      idm = {
+        email = "idm@project.iam.gserviceaccount.com"
+      }
+      id2 = {
+        email = "email@email.com"
+      }
+    }
+    publishers = [ #list of accounts that can publish to this topic
+      "serviceAccount:am@project.iam.gserviceaccount.com",
+      "serviceAccount:idm@project.iam.gserviceaccount.com",
+    ]
+    subscribers = {
+      idm = {
+        email = "idm@project.iam.gserviceaccount.com"
       }
     }
   }
-  publishers = {
-    am = {
-      email = "am@project.iam.gserviceaccount.com"
-    }
-    idm = {
-      email = "idm@project.iam.gserviceaccount.com"
-    }
-  }
-  subscribers = {
-    idm = {
-      email = "idm@project.iam.gserviceaccount.com"
-    }
-  },
   MySecondTopic = {
-    name        = "MySecondTopic"
     environment = "dev"
     labels = {
       confidentiality = "confidential"
@@ -41,22 +33,14 @@ pubsub = {
       trustlevel      = "medium"
     }
     subscriptions = {
-      subscription1 = {
-        subscribers = {
-          idm = {
-            email = "idm@project.iam.gserviceaccount.com"
-          }
-        }
-      }
-    }
-    publishers = {
-      am = {
-        email = "am@project.iam.gserviceaccount.com"
-      }
       idm = {
-        email = "idm-dev-fr@project.iam.gserviceaccount.com"
+        email = "idm@project.iam.gserviceaccount.com"
       }
     }
+    publishers = [ #list of accounts that can publish to this topic
+      "serviceAccount:am@project.iam.gserviceaccount.com",
+      "serviceAccount:idm@project.iam.gserviceaccount.com",
+    ]
     subscribers = {
       idm = {
         email = "idm-dev-fr@project.iam.gserviceaccount.com"
@@ -64,3 +48,4 @@ pubsub = {
     }
   }
 }
+
